@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="jp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/script.js" defer></script>
+</head>
+<body>
+  <div id="home">
+    <div class="herder">
+      <h1 class="title"></h1>
+    </div>
+    <div class="frame">
+      <div class="left-column">
+        <!-- ナビゲーション -->
+        <section id="navi" class="navigation"></section>
+          
+          <h2 class="menu"><a href="#" onclick="showPage('top')">top</a></h2>
+          <h2 class="menu"><a href="#" onclick="showPage('about')">about</a></h2>
+          <h2 class="menu"><a href="#" onclick="showPage('works')">works</a></h2>
+          <h2 class="menu"><a href="#" onclick="showPage('contact')">contact</a></h2>
+        </section>
+      </div>
+
+      <div class="center-column">
+        <div class="center-column-container">
+          <!-- topページ -->
+          <section id="top" class="page active">
+            <h3 class="menu">top</h3>
+          </section>
+
+          <!-- aboutページ -->
+          <section id="about" class="page">
+            <h2>about</h2>
+          </section>
+
+          <!-- worksページ -->
+          <section id="works" class="page">
+            <h2>works</h2>
+          </section>
+
+          <!-- contactページ -->
+          <section id="contact" class="page">
+            <h2>contact</h2>
+          </section>
+        </div>
+      </div>
+      <div class="right-column">
+
+      </div>
+    </div>
+  </div>
+</body>
+</html>

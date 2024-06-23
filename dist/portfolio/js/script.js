@@ -1,5 +1,6 @@
 const text = document.querySelector('.title');
 const menus = document.querySelectorAll('.menu');
+// const page = document.querySelector('.page');
 const titleText = 'Takuya Tsumoto PorTfolio'
 
 // 文字を受け取り、<span>要素を作成する関数
@@ -64,7 +65,7 @@ const secondMoveTitle = () => {
   };
 };
 
-
+// タイトルとメニューを表示
 const moveTitleFunctions = [
   firstMoveTitle,
   secondMoveTitle
@@ -79,3 +80,31 @@ const executeFunctions = async () => {
 };
 
 executeFunctions();
+
+const moveCerterColumn = (start, end) => {
+  const keyframes = {
+    opacity: [start, end],
+    translate: ['20%', 0],
+  }
+  const options = {
+    duration: 1000,
+    easing: 'ease',
+    fill: 'forwards'
+  } 
+  page.animate(keyframes, options);
+}
+
+// ページ遷移
+function showPage(pageID) {
+  let pages = document.querySelectorAll('.page');
+  // moveCerterColumn(1,0);
+  
+  pages.forEach(function(page) {
+    page.classList.remove('active');
+  });
+  
+  
+  let activePage = document.getElementById(pageID);
+  activePage.classList.add('active');
+  // moveCerterColumn(0,1);
+}
