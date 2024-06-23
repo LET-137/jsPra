@@ -1,4 +1,3 @@
-#title span {
-  opacity: 0;
+span {
+  display: inline-block;
 }
-

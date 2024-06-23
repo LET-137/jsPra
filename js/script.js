@@ -1,50 +1,73 @@
-const text1 = document.querySelector('#text1');
-const text2 = document.querySelector('#text2');
-const texts = document.querySelector('.texts');
-const position = '100%'
+const text = document.querySelector('.title');
+const titleText = 'Takuya Tsumoto porTfolio'
 
-const keyframes = {
-  backgroundPosition: [`${position} 0`, '0 0'],
-};
-const options = {
-  duration: 300,
-  easing: 'ease',
-};
-
-const animateText = (element) => {
-  element.animate(keyframes, options).finished.then(() => {
-    setTimeout(() => {
-      element.classList.remove('gradation-bef');
-      element.classList.add('gradation-aft');
-      element.animate(keyframes, options)
-    }, 100);
-  });
+// 文字を受け取り、<span>要素を作成する関数
+const createSpan = (char) => {
+  const span = document.createElement('span');
+  span.textContent = char;
+  span.style.opacity = '0';
+  span.style.whiteSpace = 'pre';
+  return span;
 }
 
-const handleScroll = (textElement) => {
-  const textPosition = textElement.getBoundingClientRect().top;
-  const windowHeight = window.innerHeight;  
-  if (textPosition < windowHeight && textPosition > 0 && !textElement.classList.contains('animated')) {
-    animateText(textElement);
-    textElement.classList.add('animated');
-    window.removeEventListener('scroll', () => handleScroll(textElement));
+// titleTextの各文字に対して<span>要素を作成し、#titleに追加
+for (let i = 0; i < titleText.length; i++) {
+  const span = createSpan(titleText[i]);
+  text.append(span);
+}
+
+const spans = text.querySelectorAll('span');
+console.log(spans);
+const firstMove = () => {
+  spans.forEach((span, index) => {
+    if (index === 0 || index === 7 || index === 18) {
+      if (index === 18) {
+        index = 14;
+      }
+      const keyframes = {
+        opacity: [0, 1],
+        translate: ['0 -20%', 0],
+      };
+      const options = {
+        duration: 1000,
+        easing: 'ease',
+        delay: index * 100,
+        fill: 'forwards',
+      };
+      span.animate(keyframes, options);
+    };
+  });
+};
+
+const secondMove = () => {
+  spans.forEach((span, index) => {
+    if (index !== 0 && index !== 7 && index !== 18 ) {
+      const keyframes = {
+        opacity: [0, 1],
+        translate: ['20% 0', 0],
+      };
+      const options = {
+        duration: 1000,
+        easing: 'ease',
+        fill: 'forwards',
+      };
+      span.animate(keyframes, options);
+    };
+  });
+};
+
+const moveFunctions = [
+  firstMove,
+  secondMove
+];
+
+const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
+const executeFunctions = async () => {
+  for (let i = 0; i < moveFunctions.length; i++) {
+    moveFunctions[i]();
+    await delay(3000);
   }
 };
 
-const animation = () => {
-  let timeout1, timeout2;
-
-  window.addEventListener('scroll', () => {
-    clearTimeout(timeout1);
-    timeout1 = setTimeout(() => handleScroll(text1), 100); // 100ms 遅延
-  });
-
-  setTimeout(() => {
-    window.addEventListener('scroll', () => {
-      clearTimeout(timeout2);
-      timeout2 = setTimeout(() => handleScroll(text2), 200); // 200ms 遅延
-    });
-  }, 100);  // 100ms 遅延後にリスナー追加
-};
-
-animation();
+executeFunctions();
