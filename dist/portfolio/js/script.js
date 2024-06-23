@@ -1,6 +1,6 @@
 const text = document.querySelector('.title');
 const menus = document.querySelectorAll('.menu');
-// const page = document.querySelector('.page');
+const contentContainer = document.querySelectorAll('.contents-container');
 const titleText = 'Takuya Tsumoto PorTfolio'
 
 // 文字を受け取り、<span>要素を作成する関数
@@ -72,39 +72,55 @@ const moveTitleFunctions = [
 ];
 
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
-const executeFunctions = async () => {
+const executeFunctions = async (func, time) => {
   for (let i = 0; i < moveTitleFunctions.length; i++) {
-    moveTitleFunctions[i]();
-    await delay(3000);
+    func[i]();
+    await delay(time);
   }
 };
 
-executeFunctions();
+executeFunctions(moveTitleFunctions, 3000);
 
-const moveCerterColumn = (start, end) => {
+const moveCerterColumn = (startOpa, endOpa,startDir,endDir, element) => {
   const keyframes = {
-    opacity: [start, end],
-    translate: ['20%', 0],
+    opacity: [startOpa, endOpa],
+    translate: [`${startDir}`, `${endDir}`],
   }
   const options = {
     duration: 1000,
     easing: 'ease',
     fill: 'forwards'
   } 
-  page.animate(keyframes, options);
+  element.animate(keyframes, options);
 }
 
 // ページ遷移
 function showPage(pageID) {
-  let pages = document.querySelectorAll('.page');
-  // moveCerterColumn(1,0);
-  
+  const closePage = () => {
+    contentContainer.forEach((content) => {
+      moveCerterColumn(1,0,'0','5%',content);
+    });
+  };
+  const openPage = () => {
+    contentContainer.forEach((content) => {
+      moveCerterColumn(0,1,'5%','0',content);
+    });
+  };
+
+  const funcPages = [
+    closePage,
+    openPage
+  ];
+  executeFunctions(funcPages, 1000);
+
+  setTimeout(() => {
+    let pages = document.querySelectorAll('.page');
   pages.forEach(function(page) {
     page.classList.remove('active');
   });
-  
-  
   let activePage = document.getElementById(pageID);
   activePage.classList.add('active');
-  // moveCerterColumn(0,1);
+  } ,1000);
+  
+  
 }

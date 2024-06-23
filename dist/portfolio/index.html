@@ -4,52 +4,47 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
   <script src="js/script.js" defer></script>
 </head>
 <body>
-  <div id="home">
+  <div id="layout">
     <div class="herder">
       <h1 class="title"></h1>
     </div>
-    <div class="frame">
-      <div class="left-column">
-        <!-- ナビゲーション -->
-        <section id="navi" class="navigation"></section>
-          
-          <h2 class="menu"><a href="#" onclick="showPage('top')">top</a></h2>
-          <h2 class="menu"><a href="#" onclick="showPage('about')">about</a></h2>
-          <h2 class="menu"><a href="#" onclick="showPage('works')">works</a></h2>
-          <h2 class="menu"><a href="#" onclick="showPage('contact')">contact</a></h2>
-        </section>
-      </div>
+    <!-- ナビゲーション -->
+    <section id="navi" class="navigation">
+      <div class="menu"><a href="#" onclick="showPage('top')">Top</a></div>
+      <div class="menu"><a href="#" onclick="showPage('about')">About</a></div>
+      <div class="menu"><a href="#" onclick="showPage('works')">Works</a></div>
+      <div class="menu"><a href="#" onclick="showPage('contact')">Contact</a></div>
+    </section>
+  
+    <div class="contents-container">
+      <!-- topページ -->
+      <section id="top" class="page active">
+        <h2 class="menu">自己紹介</h2>
+        <p class="menu">初めまして。モバイルアプリエンジニアの津本です。</p>
+        <p class="menu">私の実績をお伝えするページです。</p>
+      </section>
 
-      <div class="center-column">
-        <div class="center-column-container">
-          <!-- topページ -->
-          <section id="top" class="page active">
-            <h3 class="menu">top</h3>
-          </section>
+      <!-- aboutページ -->
+      <section id="about" class="page">
+        <h2>about</h2>
+      </section>
 
-          <!-- aboutページ -->
-          <section id="about" class="page">
-            <h2>about</h2>
-          </section>
+      <!-- worksページ -->
+      <section id="works" class="page">
+        <h2>works</h2>
+      </section>
 
-          <!-- worksページ -->
-          <section id="works" class="page">
-            <h2>works</h2>
-          </section>
-
-          <!-- contactページ -->
-          <section id="contact" class="page">
-            <h2>contact</h2>
-          </section>
-        </div>
-      </div>
-      <div class="right-column">
-
-      </div>
+      <!-- contactページ -->
+      <section id="contact" class="page">
+        <h2>contact</h2>
+      </section>
     </div>
   </div>
 </body>

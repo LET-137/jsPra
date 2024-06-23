@@ -3,47 +3,28 @@ body {
   background-color: #111;
   padding-left: 5%;
   padding-right: 5%;
+  font-family: "Inter", sans-serif;
 }
 .herder {
   height: 15%;
 }
-
 .title {
   font-size: 50px;
+}
+.navigation {
+  display: flex;  
 }
 span {
   display: inline-block;
 }
-
-.left-column {
-  width: 10%;
-  height: 100%;
-}
-.center-column {
-  background-color: #222;
-  width: 80%;
-  height: 100%;
-}
-.rigth-column {
-  background-color: #111;
-  width: 10%;
-  height: 100%;
+.content-container {
+  
 }
 .page {
   display: none;
 }
 .page.active {
   display: block;
-}
-iframe {
-  width: 100%;
-  height: 100%;
-  border: none;
-}
-.frame {
-  display: flex;
-  justify-content: space-between;
-  height: 80%;
 }
 
 .content-menu {
@@ -53,6 +34,7 @@ iframe {
   font-size: 25px;
   height: 10%;
   padding-bottom: 20%;
+  padding-right: 3%;
   opacity: 0;  
 }
 
@@ -63,8 +45,4 @@ a {
 a:visited {
   color: inherit;
   opacity: 1;
-}
-
-h3 {
-  margin-left: 20%;
 }
