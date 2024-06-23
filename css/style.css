@@ -1,3 +1,43 @@
 span {
   display: inline-block;
 }
+
+body {
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+.top {
+  height: 15%;
+}
+
+.title {
+  font-size: 50px;
+}
+
+.contents1 {
+  width: 10%;
+}
+
+.contents2 {
+  background-color: greenyellow;
+  width: 87%;
+}
+
+.main {
+  display: flex;
+  justify-content: space-between;
+  height: 80%;
+}
+
+.content-menu {
+  height: 80%;
+}
+
+.menu {
+  font-size: 25px;
+  height: 20%;
+  padding-bottom: 20%;
+  opacity: 0;  
+}
+

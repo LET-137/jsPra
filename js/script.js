@@ -1,5 +1,6 @@
 const text = document.querySelector('.title');
-const titleText = 'Takuya Tsumoto porTfolio'
+const menus = document.querySelectorAll('.menu');
+const titleText = 'Takuya Tsumoto PorTfolio'
 
 // 文字を受け取り、<span>要素を作成する関数
 const createSpan = (char) => {
@@ -17,8 +18,9 @@ for (let i = 0; i < titleText.length; i++) {
 }
 
 const spans = text.querySelectorAll('span');
-console.log(spans);
-const firstMove = () => {
+
+// 特定の文字のみを表示
+const firstMoveTitle = () => {
   spans.forEach((span, index) => {
     if (index === 0 || index === 7 || index === 18) {
       if (index === 18) {
@@ -39,33 +41,39 @@ const firstMove = () => {
   });
 };
 
-const secondMove = () => {
+// 残りの文字を表示
+const secondMoveTitle = () => {
+  const keyframes = {
+    opacity: [0, 1],
+    translate: ['20% 0', 0],
+  };
+  const options = {
+    duration: 1000,
+    easing: 'ease',
+    fill: 'forwards',
+  };
   spans.forEach((span, index) => {
     if (index !== 0 && index !== 7 && index !== 18 ) {
-      const keyframes = {
-        opacity: [0, 1],
-        translate: ['20% 0', 0],
-      };
-      const options = {
-        duration: 1000,
-        easing: 'ease',
-        fill: 'forwards',
-      };
       span.animate(keyframes, options);
     };
   });
+  // メニューを表示
+  for (let i = 0; i < menus.length; i++) {
+    console.log(i);
+    menus[i].animate(keyframes, options);
+  };
 };
 
-const moveFunctions = [
-  firstMove,
-  secondMove
+
+const moveTitleFunctions = [
+  firstMoveTitle,
+  secondMoveTitle
 ];
 
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
-
 const executeFunctions = async () => {
-  for (let i = 0; i < moveFunctions.length; i++) {
-    moveFunctions[i]();
+  for (let i = 0; i < moveTitleFunctions.length; i++) {
+    moveTitleFunctions[i]();
     await delay(3000);
   }
 };
