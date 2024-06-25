@@ -18,8 +18,21 @@ for (let i = 0; i < titleText.length; i++) {
   const span = createSpan(titleText[i]);
   text.append(span);
 }
-
 const spans = text.querySelectorAll('span');
+
+// 遷移時のanimateを定義
+const animationText = (startOpa, endOpa, startTran, endTran, element, duration) => {
+  const keyframes = {
+    opacity: [startOpa, endOpa],
+    translate: [`${startTran}`, `${endTran}`],
+  }
+  const options = {
+    duration: duration,
+    easing: 'ease',
+    fill: 'forwards'
+  } 
+  element.animate(keyframes, options);
+}
 
 // 特定の文字のみを表示
 const firstMoveTitle = () => {
@@ -45,35 +58,20 @@ const firstMoveTitle = () => {
 
 // 残りの文字を表示
 const secondMoveTitle = () => {
-  const keyframes = {
-    opacity: [0, 1],
-    translate: ['20% 0', 0],
-  };
-  const options = {
-    duration: 1000,
-    easing: 'ease',
-    fill: 'forwards',
-  };
+  const durationlTime = 800
   spans.forEach((span, index) => {
     if (index !== 0 && index !== 7 && index !== 18 ) {
-      span.animate(keyframes, options);
+      animationText(0, 1, '20% 0', 0, span, durationlTime);
     };
   });
   // メニューを表示
   for (let i = 0; i < menus.length; i++) {
-    menus[i].animate(keyframes, options);
-    console.log('menu')
+    animationText(0, 1, '20% 0', 0, menus[i], durationlTime);
   };
-  topPage.animate(keyframes, options);
+  animationText(0, 1, '10% 0', 0, topPage, durationlTime);
 };
 
-// タイトルとメニューを表示
-const moveTitleFunctions = [
-  { func: firstMoveTitle },
-  { func: secondMoveTitle },
-];
-
-// 非同期で指定した関数を実行
+// 複数の関数を非同期処理で順次実行
 const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 const executeFunctions = async (funcs, time) => {
   for (let i = 0; i < funcs.length; i++) {
@@ -82,21 +80,13 @@ const executeFunctions = async (funcs, time) => {
     await delay(time);
   }
 };
-executeFunctions(moveTitleFunctions, 3000);
 
-// 遷移時のアニメーション
-const moveCerterColumn = (startOpa, endOpa,startDir,endDir, element, duration) => {
-  const keyframes = {
-    opacity: [startOpa, endOpa],
-    translate: [`${startDir}`, `${endDir}`],
-  }
-  const options = {
-    duration: duration,
-    easing: 'ease',
-    fill: 'forwards'
-  } 
-  element.animate(keyframes, options);
-}
+// タイトルとメニューを表示
+const moveTitleFunctions = [
+  { func: firstMoveTitle },
+  { func: secondMoveTitle },
+];
+executeFunctions(moveTitleFunctions, 3000);
 
 // 遷移時にactiveクラスを操作
 function pageTransition(pageID) {
@@ -113,14 +103,15 @@ function pageTransition(pageID) {
 function showPage(pageID) {
   const activePage = document.getElementById(`navi-${pageID}`);
   activePage.style.pointerEvents = 'none';
+  const durationlTime = 550
   const closePage = () => {
     contentContainer.forEach((content) => {
-      moveCerterColumn(1,0,'0','5%',content, 700);
+      animationText(1,0,'0','5%',content, durationlTime);
     });
   };
   const openPage = () => {
     contentContainer.forEach((content) => {
-      moveCerterColumn(0,1,'5%','0',content, 700);
+      animationText(0,1,'5%','0',content, durationlTime);
     });
     activePage.style.pointerEvents = 'auto';
   };
@@ -130,5 +121,5 @@ function showPage(pageID) {
     { func: pageTransition, args: [pageID] },
     { func: openPage },
   ];
-  executeFunctions(funcPages, 800,pageTransition, pageID);
+  executeFunctions(funcPages, 600,pageTransition, pageID);
 }
