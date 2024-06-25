@@ -68,7 +68,7 @@ const secondMoveTitle = () => {
   for (let i = 0; i < menus.length; i++) {
     animationText(0, 1, '20% 0', 0, menus[i], durationlTime);
   };
-  animationText(0, 1, '10% 0', 0, topPage, durationlTime);
+  animationText(0, 1, '2% 0', 0, topPage, durationlTime);
 };
 
 // 複数の関数を非同期処理で順次実行
@@ -106,12 +106,12 @@ function showPage(pageID) {
   const durationlTime = 550
   const closePage = () => {
     contentContainer.forEach((content) => {
-      animationText(1,0,'0','5%',content, durationlTime);
+      animationText(1,0,'0','2%',content, durationlTime);
     });
   };
   const openPage = () => {
     contentContainer.forEach((content) => {
-      animationText(0,1,'5%','0',content, durationlTime);
+      animationText(0,1,'2%','0',content, durationlTime);
     });
     activePage.style.pointerEvents = 'auto';
   };

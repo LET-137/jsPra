@@ -1,4 +1,5 @@
 body {
+  text-align: center;  
   color: #fff;
   background-color: #111;
   padding-left: 5%;
@@ -12,7 +13,8 @@ body {
   font-size: 50px;
 }
 .navigation {
-  display: flex;  
+  display: flex;
+  justify-content: center;
 }
 span {
   display: inline-block;
@@ -34,7 +36,8 @@ span {
   font-size: 25px;
   height: 10%;
   padding-bottom: 20%;
-  padding-right: 3%;
+  padding-left: 2%;
+  padding-right: 2%;
   opacity: 0;  
 }
 
