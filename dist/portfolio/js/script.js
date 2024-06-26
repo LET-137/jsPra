@@ -3,6 +3,7 @@ const menus = document.querySelectorAll('.menu');
 const contentContainer = document.querySelectorAll('.contents-container');
 const topPage = document.querySelector('#top');
 const arrows = document.querySelectorAll('arrow');
+let isArrow = true;
 const titleText = 'Takuya Tsumoto PorTfolio'
 
 // 文字を受け取り、<span>要素を作成する関数
@@ -111,14 +112,16 @@ function mouseOverOff(element) {
 
 // ページ遷移
 function showPage(pageID) {
+  isArrow = false;
   const nextPage = document.getElementById(`navi-${pageID}`);
   const arrowId = document.getElementById(`arrow-${pageID}`)
   nextPage.style.pointerEvents = 'none';
+  
   const durationlTime = 550
   const closePage = () => {
     contentContainer.forEach((content) => {
       animationText(1,0,'0','2%',content, durationlTime);
-      animationText(1,0,'0','20%',arrowId, durationlTime);
+      animationText(1,0,'0','40%',arrowId, durationlTime);
     });
   };
   const openPage = () => {
@@ -126,8 +129,9 @@ function showPage(pageID) {
       animationText(0,1,'2%','0',content, durationlTime);
     });
     nextPage.style.pointerEvents = 'auto';
+    isArrow = true;
   };
-  // mouseOverOff(nextPage, 600);
+  
   const funcPages = [
     { func: closePage },
     { func: pageTransition, args: [pageID] },
@@ -143,15 +147,20 @@ function getArrowId(element) {
   return arrow
 };
 
+// メニューにカーソルを合わせた時の動作
 menus.forEach((element) => {
   element.addEventListener('mouseover', () => {
     const arrow = getArrowId(element);
-    animationText(0,1,0,0,arrow,800);
-  })
+    if (isArrow === true) {
+      animationText(0,1,0,0,arrow,800);
+    };
+  });
 });
 menus.forEach((element) => {
   element.addEventListener('mouseout', () => {
     const arrow = getArrowId(element);
-    animationText(1,0,0,0,arrow,800);
-  })
+    if (isArrow === true) {
+      animationText(1,0,0,0,arrow,800);
+    };
+  });
 });

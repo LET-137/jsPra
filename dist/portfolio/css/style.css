@@ -5,7 +5,10 @@ body {
   padding-right: 5%;
   font-family: "Inter", sans-serif;
 }
+
 .herder {
+  padding-top: 5%;
+  padding-bottom: 5%;
   height: 15%;
 }
 .title {
@@ -15,6 +18,7 @@ body {
   display: flex;
   justify-content: space-between;    
 }
+
 .navigation {
   position: fixed;
   top: 20%;
@@ -44,6 +48,7 @@ body {
   margin-right: 10%;
   width: 80%;
 }
+
 span {
   display: inline-block;
 }
@@ -57,13 +62,8 @@ span {
 #top {
   opacity: 0;
 }
-/* .content-menu {
-  height: 80%;
-} */
 .menu {
   font-size: 25px;
-  /* margin-bottom: 20%; */
-  /* padding-bottom: 20%; */
   opacity: 0;  
 }
 
@@ -74,4 +74,24 @@ a {
 a:visited {
   color: inherit;
   opacity: 1;
+}
+@media screen and (max-width: 800px) {
+  #fram {
+    display: block;
+    font-size: 10px;
+    width: 100%;
+    padding: 10%;
+  }
+  .title {
+    font-size: 20px;
+  }
+  
+  .menu {
+    font-size: 10px;
+  }
+  .column-container {
+    text-align: center;
+    /* margin-right: 10%; */
+    width: 100%;
+  }
 }
