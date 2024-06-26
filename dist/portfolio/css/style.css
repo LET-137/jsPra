@@ -1,5 +1,4 @@
 body {
-  text-align: center;  
   color: #fff;
   background-color: #111;
   padding-left: 5%;
@@ -12,9 +11,38 @@ body {
 .title {
   font-size: 50px;
 }
-.navigation {
+#fram {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;    
+}
+.navigation {
+  position: fixed;
+  top: 20%;
+  left: 0;
+  transform: translateY(20%);
+  display: flex;
+  flex-direction: column;
+  padding-left: 6%;
+  height: auto;
+  width: 15%;
+}
+.navi-div {
+  display: inline-flex;
+  align-items: center;
+  padding-bottom: 20%;
+}
+.arrow {
+  align-items: center;
+  padding-left: 5%;
+  opacity: 0;
+}
+.column-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  text-align: center;
+  margin-right: 10%;
+  width: 80%;
 }
 span {
   display: inline-block;
@@ -29,15 +57,13 @@ span {
 #top {
   opacity: 0;
 }
-.content-menu {
+/* .content-menu {
   height: 80%;
-}
+} */
 .menu {
   font-size: 25px;
-  height: 10%;
-  padding-bottom: 20%;
-  padding-left: 2%;
-  padding-right: 2%;
+  /* margin-bottom: 20%; */
+  /* padding-bottom: 20%; */
   opacity: 0;  
 }
 

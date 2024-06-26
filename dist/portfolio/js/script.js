@@ -2,6 +2,7 @@ const text = document.querySelector('.title');
 const menus = document.querySelectorAll('.menu');
 const contentContainer = document.querySelectorAll('.contents-container');
 const topPage = document.querySelector('#top');
+const arrows = document.querySelectorAll('arrow');
 const titleText = 'Takuya Tsumoto PorTfolio'
 
 // 文字を受け取り、<span>要素を作成する関数
@@ -99,23 +100,34 @@ function pageTransition(pageID) {
   
 };
 
+// 指定した時間の間、mauseOverをオフにする
+function mouseOverOff(element) {
+  element.removeEventListener('mouseover');
+  // 指定時間後にイベントリスナーを再追加
+  setTimeout(() => {
+    element.addEventListener('mouseover');
+  }, 600);
+};
+
 // ページ遷移
 function showPage(pageID) {
-  const activePage = document.getElementById(`navi-${pageID}`);
-  activePage.style.pointerEvents = 'none';
+  const nextPage = document.getElementById(`navi-${pageID}`);
+  const arrowId = document.getElementById(`arrow-${pageID}`)
+  nextPage.style.pointerEvents = 'none';
   const durationlTime = 550
   const closePage = () => {
     contentContainer.forEach((content) => {
       animationText(1,0,'0','2%',content, durationlTime);
+      animationText(1,0,'0','20%',arrowId, durationlTime);
     });
   };
   const openPage = () => {
     contentContainer.forEach((content) => {
       animationText(0,1,'2%','0',content, durationlTime);
     });
-    activePage.style.pointerEvents = 'auto';
+    nextPage.style.pointerEvents = 'auto';
   };
-
+  // mouseOverOff(nextPage, 600);
   const funcPages = [
     { func: closePage },
     { func: pageTransition, args: [pageID] },
@@ -123,3 +135,23 @@ function showPage(pageID) {
   ];
   executeFunctions(funcPages, 600,pageTransition, pageID);
 }
+
+function getArrowId(element) {
+  const id = element.id.slice(5,element.id.length);
+  const arrowId = `arrow-${id}`
+  const arrow = document.querySelector(`#${arrowId}`);
+  return arrow
+};
+
+menus.forEach((element) => {
+  element.addEventListener('mouseover', () => {
+    const arrow = getArrowId(element);
+    animationText(0,1,0,0,arrow,800);
+  })
+});
+menus.forEach((element) => {
+  element.addEventListener('mouseout', () => {
+    const arrow = getArrowId(element);
+    animationText(1,0,0,0,arrow,800);
+  })
+});
