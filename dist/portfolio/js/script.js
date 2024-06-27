@@ -98,7 +98,6 @@ function pageTransition(pageID) {
   });
   let activePage = document.getElementById(pageID);
   activePage.classList.add('active');
-  
 };
 
 // 指定した時間の間、mauseOverをオフにする
@@ -140,6 +139,7 @@ function showPage(pageID) {
   executeFunctions(funcPages, 600,pageTransition, pageID);
 }
 
+// mouseoverのarrowIdを取得
 function getArrowId(element) {
   const id = element.id.slice(5,element.id.length);
   const arrowId = `arrow-${id}`
@@ -148,6 +148,7 @@ function getArrowId(element) {
 };
 
 // メニューにカーソルを合わせた時の動作
+// mouseoverでカーソルを表示
 menus.forEach((element) => {
   element.addEventListener('mouseover', () => {
     const arrow = getArrowId(element);
@@ -156,6 +157,7 @@ menus.forEach((element) => {
     };
   });
 });
+// mouseoutでカーソルを隠す
 menus.forEach((element) => {
   element.addEventListener('mouseout', () => {
     const arrow = getArrowId(element);

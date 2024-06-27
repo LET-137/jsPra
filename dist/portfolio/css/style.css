@@ -6,6 +6,11 @@ body {
   font-family: "Inter", sans-serif;
 }
 
+/* 全体 */
+#fram {
+  display: flex;
+  justify-content: space-between;    
+}
 .herder {
   padding-top: 5%;
   padding-bottom: 5%;
@@ -14,11 +19,6 @@ body {
 .title {
   font-size: 50px;
 }
-#fram {
-  display: flex;
-  justify-content: space-between;    
-}
-
 .navigation {
   position: fixed;
   top: 20%;
@@ -39,20 +39,20 @@ body {
   align-items: center;
   padding-left: 5%;
   opacity: 0;
+  font-size: 18px;
+  white-space: pre;
 }
 .column-container {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  text-align: center;
+  margin-left: 20%;
   margin-right: 10%;
   width: 80%;
 }
-
 span {
   display: inline-block;
 }
-
 .page {
   display: none;
 }
@@ -63,10 +63,26 @@ span {
   opacity: 0;
 }
 .menu {
-  font-size: 25px;
-  opacity: 0;  
+  font-size: 20px;
+  opacity: 0;
 }
 
+/* メインコンテンツ */
+h2 {
+  font-size: 30px;
+}
+.main-contents {
+  padding-top: 4%;
+  padding-bottom: 8%;
+}
+li{
+  display: flex;
+  justify-content: space-between;
+  width: 30%;
+  list-style-type: none;
+  white-space: pre;
+  padding-bottom: 2%;
+}
 a {
   color: inherit;
   text-decoration: none;
@@ -75,6 +91,8 @@ a:visited {
   color: inherit;
   opacity: 1;
 }
+
+/* レスポンシブ */
 @media screen and (max-width: 800px) {
   #fram {
     display: block;
@@ -90,8 +108,7 @@ a:visited {
     font-size: 10px;
   }
   .column-container {
-    text-align: center;
-    /* margin-right: 10%; */
     width: 100%;
-  }
+    margin-left: 20%;
+  } 
 }
