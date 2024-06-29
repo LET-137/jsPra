@@ -12,14 +12,15 @@ body {
   display: flex;
 }
 .herder {
-  padding-top: 5%;
-  padding-bottom: 5%;
-  height: 15%;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 .title {
   font-size: 50px;
 }
-
+.title.spase {
+  display: inline-block;
+}
 /* ナビゲーション */
 .navigation {
   position: fixed;
@@ -47,9 +48,9 @@ body {
 .column-container {
   padding-left: 20%;
 }
-span {
+/* span {
   display: inline-block;
-}
+} */
 .page {
   display: none;
 }
@@ -100,6 +101,9 @@ h2 {
 h3 {
   padding-bottom: 2%;
 }
+.illustration-title {
+  padding-bottom: 0%;
+}
 .contact-contents {
   padding-top: 2%;
 }
@@ -118,20 +122,39 @@ a:visited {
   color: inherit;
   opacity: 1;
 }
-.spase {
+.spase-top-bottom {
   padding-top: 2%;
+  padding-bottom: 2%;
+}
+.spase-bottom {
   padding-bottom: 2%;
 }
 .pixiv-icon {
   padding-left: 0.5%;
 }
 .works-list {
-  display: flex;
-  gap: 10%;
-  width: 100%;
+  display: grid;
+  gap: 2%;
+  
 }
-.works-title {
+.work-title {
   color: gray;
+}
+.work-item {
+  display: flex;
+}
+.work-item-block {
+  padding-left: 2%;
+}
+.work-item-block p {
+  padding-bottom: 1%;
+}
+.illustration-item-block p {
+  padding-bottom: 1%;
+}
+.illustrations {
+  display: flex;
+  gap: 5%;
 }
 /* レスポンシブ */
 @media screen and (max-width: 800px) {
