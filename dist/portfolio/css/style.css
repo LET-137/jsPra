@@ -1,6 +1,6 @@
 body {
-  /* color: #fff;
-  background-color: #111; */
+  color: #fff;
+  background-color: #111;
   padding-left: 5%;
   padding-right: 5%;
   font-family: "Inter", sans-serif;
@@ -125,7 +125,14 @@ a:visited {
 .pixiv-icon {
   padding-left: 0.5%;
 }
-
+.works-list {
+  display: flex;
+  gap: 10%;
+  width: 100%;
+}
+.works-title {
+  color: gray;
+}
 /* レスポンシブ */
 @media screen and (max-width: 800px) {
   #fram {
