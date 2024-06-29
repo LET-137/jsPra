@@ -1,6 +1,6 @@
 body {
-  color: #fff;
-  background-color: #111;
+  /* color: #fff;
+  background-color: #111; */
   padding-left: 5%;
   padding-right: 5%;
   font-family: "Inter", sans-serif;
@@ -23,7 +23,7 @@ body {
   position: fixed;
   top: 20%;
   left: 0;
-  transform: translateY(20%);
+  /* transform: translateY(20%); */
   display: flex;
   flex-direction: column;
   padding-left: 6%;
@@ -71,17 +71,40 @@ span {
 h2 {
   font-size: 30px;
 }
+
 .main-contents {
-  padding-top: 4%;
-  padding-bottom: 8%;
+  padding-top: 3%;
+  padding-bottom: 6%;
+  display: flex;
+  flex-wrap: wrap;
 }
+.skills {
+  flex: 1;
+}
+.skills ul {
+  padding-top: 2%;
+}
+
 li{
   display: flex;
   justify-content: space-between;
-  width: 30%;
+  width: 60%;
   list-style-type: none;
   white-space: pre;
   padding-bottom: 2%;
+  padding-left: 3%;
+}
+h3 {
+  padding-bottom: 2%;
+}
+.contact-contents {
+  padding-top: 2%;
+}
+.text-padding {
+  padding-left: 2%;
+}
+.sns-span {
+  padding-left: 10%;
 }
 a {
   color: inherit;
@@ -91,7 +114,13 @@ a:visited {
   color: inherit;
   opacity: 1;
 }
-
+.spase {
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+.pixiv-icon {
+  padding-left: 0.5%;
+}
 /* レスポンシブ */
 @media screen and (max-width: 800px) {
   #fram {
@@ -103,12 +132,22 @@ a:visited {
   .title {
     font-size: 20px;
   }
-  
+  h2 {
+    font-size: 15px;
+  }
   .menu {
     font-size: 10px;
   }
   .column-container {
     width: 100%;
-    margin-left: 20%;
-  } 
+  }
+  .main-contents {
+    display: block;
+  }
+  .skills {
+    flex: 0;
+  }
+  /* .skills li {
+    width: 40%;
+  } */
 }

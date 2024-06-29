@@ -1,3 +1,4 @@
+
 const text = document.querySelector('.title');
 const menus = document.querySelectorAll('.menu');
 const contentContainer = document.querySelectorAll('.contents-container');
@@ -5,6 +6,13 @@ const topPage = document.querySelector('#top');
 const arrows = document.querySelectorAll('arrow');
 let isArrow = true;
 const titleText = 'Takuya Tsumoto PorTfolio'
+
+// 使用デバイスがPCかモバイルか判定
+function isMobile() {
+  const devise = /Mobi|Andoroid/i.test(navigator.userAgent);
+  return devise;
+};
+isMobile();
 
 // 文字を受け取り、<span>要素を作成する関数
 const createSpan = (char) => {
@@ -98,7 +106,7 @@ function pageTransition(pageID) {
   });
   let activePage = document.getElementById(pageID);
   activePage.classList.add('active');
-};
+}
 
 // 指定した時間の間、mauseOverをオフにする
 function mouseOverOff(element) {
@@ -150,19 +158,23 @@ function getArrowId(element) {
 // メニューにカーソルを合わせた時の動作
 // mouseoverでカーソルを表示
 menus.forEach((element) => {
-  element.addEventListener('mouseover', () => {
-    const arrow = getArrowId(element);
-    if (isArrow === true) {
-      animationText(0,1,0,0,arrow,800);
-    };
-  });
+  if (!isMobile()) {
+    element.addEventListener('mouseover', () => {
+      const arrow = getArrowId(element);
+      if (isArrow === true) {
+        animationText(0,1,0,0,arrow,800);
+      };
+    });
+  };
 });
 // mouseoutでカーソルを隠す
 menus.forEach((element) => {
-  element.addEventListener('mouseout', () => {
-    const arrow = getArrowId(element);
-    if (isArrow === true) {
-      animationText(1,0,0,0,arrow,800);
-    };
-  });
+  if (!isMobile()) {
+    element.addEventListener('mouseout', () => {
+      const arrow = getArrowId(element);
+      if (isArrow === true) {
+        animationText(1,0,0,0,arrow,800);
+      };
+    });
+  };
 });
