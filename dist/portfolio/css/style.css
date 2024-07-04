@@ -22,8 +22,24 @@ body {
 .title.spase {
   display: inline-block;
 }
+.text-padding {
+  padding-left: 1%;
+}
+.text-bold {
+  font-weight: bold;
+}
+.spase-top-bottom {
+  padding-top: 2%;
+  padding-bottom: 2%;
+}
+.spase-bottom {
+  padding-bottom: 2%;
+}
+.spase-left {
+  padding-left: 20px;
+}
 
-/* ナビゲーション */
+/* navigation */
 .navigation {
   position: fixed;
   top: 20%;
@@ -38,6 +54,18 @@ body {
   align-items: center;
   padding-bottom: 20%;
 }
+.menu {
+  font-size: 20px;
+  opacity: 0;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+a:visited {
+  color: inherit;
+  opacity: 1;
+}
 .arrow {
   align-items: center;
   padding-left: 5%;
@@ -46,7 +74,7 @@ body {
   white-space: pre;
 }
 
-/* メインコンテンツ */
+/* main-contents */
 .column-container {
   padding-left: 20%;
 }
@@ -56,29 +84,32 @@ body {
 .page.active {
   display: block;
 }
+
+/* top */
 #top {
-  opacity: 0;
-}
-.menu {
-  font-size: 20px;
   opacity: 0;
 }
 h2 {
   font-size: 30px;
-}
-.main-contents {
-  padding-top: 4%;
-  padding-bottom: 8%;
 }
 .profile-status {
   padding-top: 2%;
   padding-left: 2%;
 }
 .profile-status-item {
-  width: 50%;
+  width: 30%;
   display: grid;
   grid-template-columns: repeat(2,1fr);
   padding-bottom: 1%;
+}
+
+/* about */
+h3 {
+  padding-bottom: 2%;
+}
+.main-contents {
+  padding-top: 4%;
+  padding-bottom: 8%;
 }
 .skill-contents {
   padding-top: 4%;
@@ -87,7 +118,6 @@ h2 {
   grid-template-columns: repeat(3,23%);
   gap: 10%;
 }
-
 .skills ul {
   padding-top: 2%;
 }
@@ -110,39 +140,9 @@ h2 {
   padding-left: 2%;
   padding-right: 2%;
 }
-h3 {
-  padding-bottom: 2%;
-}
-.illustration-title {
-  padding-bottom: 0%;
-}
-.contact-contents {
-  padding-top: 2%;
-}
-.text-padding {
-  padding-left: 1%;
-}
-.text-bold {
-  font-weight: bold;
-}
 .sns-span {
   padding-left: 2%;
   align-items: center;
-}
-a {
-  color: inherit;
-  text-decoration: none;
-}
-a:visited {
-  color: inherit;
-  opacity: 1;
-}
-.spase-top-bottom {
-  padding-top: 2%;
-  padding-bottom: 2%;
-}
-.spase-bottom {
-  padding-bottom: 2%;
 }
 .pixiv-icon {
   width: 24px;
@@ -150,6 +150,8 @@ a:visited {
   object-fit: cover;
   padding-left: 0.5%;
 }
+
+/* works */
 .works-list {
   display: grid;
   grid-template-columns: repeat(1,1fr);
@@ -168,12 +170,14 @@ a:visited {
 .work-title {
   color: gray;
 }
-
 .work-item {
   display: block;
 }
 .work-item-block {
   padding-bottom: 1%;
+}
+.illustration-title {
+  padding-bottom: 0%;
 }
 .illustration-display {
   max-width: 100%;
@@ -189,12 +193,21 @@ a:visited {
   gap: 5%;
   padding-top: 2%;
 }
+
+/* contact */
+.contact-contents {
+  padding-top: 2%;
+}
+
+
 /* レスポンシブ */
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 830px) {
   body {
     overflow-y: auto;
     overflow-x: hidden;
   }
+
+  /* 全体 */
   #fram {
     display: block;
     font-size: 10px;
@@ -202,6 +215,8 @@ a:visited {
     padding-top: 2%;
     padding-left: 2%;
   }
+
+  /* top */
   .title {
     width: 100%;
     font-size: 20px;
@@ -209,6 +224,8 @@ a:visited {
   h2 {
     font-size: 15px;
   }
+
+  /* navigation */
   .navigation {
     padding-left: 0%;
   }
@@ -218,21 +235,33 @@ a:visited {
   .menu {
     font-size: 10px;
   }
+  .arrow {
+    font-size: 10px;
+  }
+
+  /* top */
+  /* .profile-status {
+    width: 60%;
+  } */
+  .profile-status-item {
+    width: 80%;
+  }
+  /* main-contents */
   .column-container {
     width: 100%;
   }
+
+  /* about */
   .skill-contents {
     width: 55%;
     grid-template-columns: repeat(1,1fr);
     gap: 1%;
-
   }
   .skills {
     flex: 0;
   }
-  .arrow {
-    font-size: 10px;
-  }
+
+  /* works */
   .works-list {
     width: 100%;
     height: 100%;
