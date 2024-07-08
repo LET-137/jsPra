@@ -12,6 +12,7 @@ body {
   display: flex;
 }
 .herder {
+  
   padding-top: 50px;
   padding-bottom: 50px;
 }
@@ -175,9 +176,6 @@ h3 {
 }
 .work-item-block {
   padding-bottom: 1%;
-}
-.illustration-title {
-  padding-bottom: 0%;
 }
 .illustration-display {
   max-width: 100%;
