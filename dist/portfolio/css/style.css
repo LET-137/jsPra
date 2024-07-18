@@ -11,9 +11,13 @@ body {
 #fram {
   display: flex;
 }
+
 .herder {
   padding-top: 50px;
   padding-bottom: 50px;
+}
+span {
+  display: inline-block;
 }
 .title {
   width: 1000px;
@@ -176,9 +180,6 @@ h3 {
 .work-item-block {
   padding-bottom: 1%;
 }
-.illustration-title {
-  padding-bottom: 0%;
-}
 .illustration-display {
   max-width: 100%;
   height: auto;
@@ -215,7 +216,7 @@ h3 {
     padding-top: 2%;
     padding-left: 2%;
   }
-
+  
   /* top */
   .title {
     width: 100%;
